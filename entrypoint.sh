@@ -28,7 +28,7 @@ cd build
 touch .nojekyll
 
 # Is this a regular repo or an org.github.io type of repo
-if [[ "${GITHUB_REPOSITORY}" == *".github.io"* ]]; then
+if [[ "${INPUT_DEST_REPO}" == *".github.io"* ]]; then
   remote_branch="master"
 else
   remote_branch="gh-pages"
