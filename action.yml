@@ -7,12 +7,16 @@ inputs:
   dest_repo:
     description: 'destination repo'
     required: true
+  dest_branch:
+    description: 'destination branch'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.jekyll_src }}
     - ${{ inputs.dest_repo }}
+    - ${{ inputs.dest_branch }}
 branding:
   icon: 'book'
   color: 'blue'

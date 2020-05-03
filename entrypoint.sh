@@ -34,6 +34,10 @@ else
   remote_branch="gh-pages"
 fi
 
+if [[ ${INPUT_DEST_BRANCH} ]]; then
+	remote_branch = ${INPUT_DEST_BRANCH}
+fi
+
 if [ "${GITHUB_REF}" == "refs/heads/${remote_branch}" ]; then
   echo "Cannot publish on branch ${remote_branch}"
   exit 1
