@@ -35,12 +35,7 @@ else
 fi
 
 if [[ ${INPUT_DEST_BRANCH} ]]; then
-	remote_branch = ${INPUT_DEST_BRANCH}
-fi
-
-if [ "${GITHUB_REF}" == "refs/heads/${remote_branch}" ]; then
-  echo "Cannot publish on branch ${remote_branch}"
-  exit 1
+	remote_branch=${INPUT_DEST_BRANCH}
 fi
 
 echo "Publishing to ${INPUT_DEST_REPO} on branch ${remote_branch}"
@@ -50,7 +45,7 @@ git init && \
 git config user.name "${GITHUB_ACTOR}" && \
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com" && \
 git add . && \
-git commit -m "jekyll build from Action ${GITHUB_SHA}" && \
+git commit -m "Site build from action ${GITHUB_SHA}" && \
 git push --force $remote_repo master:$remote_branch && \
 rm -fr .git && \
 cd ..
