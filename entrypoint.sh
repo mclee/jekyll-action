@@ -39,9 +39,9 @@ if [ "${GITHUB_REF}" == "refs/heads/${remote_branch}" ]; then
   exit 1
 fi
 
-echo "Publishing to ${GITHUB_REPOSITORY} on branch ${remote_branch}"
+echo "Publishing to ${INPUT_DEST_REPO} on branch ${remote_branch}"
 
-remote_repo="https://${JEKYLL_PAT}@github.com/${GITHUB_REPOSITORY}.git" && \
+remote_repo="https://${JEKYLL_PAT}@github.com/${INPUT_DEST_REPO}.git" && \
 git init && \
 git config user.name "${GITHUB_ACTOR}" && \
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com" && \
